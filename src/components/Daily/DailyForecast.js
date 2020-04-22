@@ -38,16 +38,28 @@ export default class DailyForecast extends React.Component {
                 <div className="col-3">
                   <h6>
                     Evening:
-                    {day.temp.eve > 0 ? "+" + day.temp.eve : day.temp.eve}° C
+                    {day.temp.eve > 0 ? "+" + day.temp.eve : day.temp.eve}° C (
+                    {day.feels_like.eve > 0
+                      ? "+" + day.feels_like.eve
+                      : day.feels_like.eve}
+                    ° C)
                   </h6>
                   <h6>
                     Day:
-                    {day.temp.day > 0 ? "+" + day.temp.day : day.temp.day}° C
+                    {day.temp.day > 0 ? "+" + day.temp.day : day.temp.day}° C (
+                    {day.feels_like.day > 0
+                      ? "+" + day.feels_like.day
+                      : day.feels_like.day}
+                    ° C)
                   </h6>
                   <h6>
                     Night:
                     {day.temp.night > 0 ? "+" + day.temp.night : day.temp.night}
-                    ° C
+                    ° C (
+                    {day.feels_like.night > 0
+                      ? "+" + day.feels_like.night
+                      : day.feels_like.night}
+                    ° C)
                   </h6>
                 </div>
                 <div className="col-3">

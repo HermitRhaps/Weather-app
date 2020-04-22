@@ -53,11 +53,6 @@ export default class Forecast extends React.Component {
             },
           });
         })
-        .then(
-          setTimeout(() => {
-            console.log(this.state.current);
-          }, 1000)
-        )
         .catch((error) => this.setState({ error, searched: false }));
     });
   }

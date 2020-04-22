@@ -1,19 +1,24 @@
 import React from "react";
 
-export default class View extends React.Component {
+export default class CurrentForecast extends React.Component {
   constructor(prop) {
     super(prop);
     this.state = {
       timezone: this.props.timezone,
-      date: this.props.date,
       current: this.props.current,
+      date: "",
     };
+  }
+  componentDidMount() {
+    let p = new Date();
+    this.setState({ date: p.toString() });
   }
   render() {
     return (
       <>
-        <div class="card-header bg-light text-center">
+        <div className="card-header bg-light text-center">
           <h4>Current forecast in {this.state.timezone}</h4>
+          <h6> {this.state.date}</h6>
         </div>
         <div className="card-body">
           <div className="row justify-content-center">
@@ -32,7 +37,7 @@ export default class View extends React.Component {
                   ></img>
                   {this.state.current.temp > 0
                     ? "+" + this.state.current.temp
-                    : "-" + this.state.current.temp}
+                    : this.state.current.temp}
                 </span>
               </h4>
             </div>
@@ -41,7 +46,7 @@ export default class View extends React.Component {
                 Feels like:
                 {this.state.current.feels_like > 0
                   ? "+" + this.state.current.feels_like
-                  : "-" + this.state.current.feels_like}
+                  : this.state.current.feels_like}
               </h6>
               <h6>Humidity: {this.state.current.humidity}</h6>
               <h6>Wind speed: {this.state.current.humidity}</h6>

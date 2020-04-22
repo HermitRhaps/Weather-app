@@ -2,10 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
-import Current from "./components/current_weather";
+import Forecast from "./components/Forecast";
 ReactDOM.render(
   <React.StrictMode>
-    <Current />
+    <Forecast />
   </React.StrictMode>,
   document.getElementById("root")
 );

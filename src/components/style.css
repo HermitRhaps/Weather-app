@@ -7,3 +7,18 @@
 .container {
   margin-top: 4%;
 }
+
+.card {
+  animation: show 1s ease-out;
+}
+
+@keyframes show {
+  from {
+    margin: -25%;
+    opacity: 0;
+  }
+  to {
+    top: 0%;
+    opacity: 1;
+  }
+}

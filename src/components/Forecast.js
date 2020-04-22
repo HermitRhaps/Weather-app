@@ -1,14 +1,15 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import View from "./view";
-import Hourly from "./hourly";
+import View from "./Current/CurrentForecast";
+import Hourly from "./Hourly/HourlyForecast";
+import DailyForecast from "./Daily/DailyForecast";
 import "./style.css";
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 const REQUEST_TYPE = "onecall?";
 const USR_KEY = "&appid=83c6ba4dd07d83514536821a8a51d6d5";
 
-export default class Current extends React.Component {
+export default class Forecast extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -54,7 +55,7 @@ export default class Current extends React.Component {
         })
         .then(
           setTimeout(() => {
-            console.log(this.state.hourly);
+            console.log(this.state.daily);
           }, 1000)
         )
         .catch((error) => this.setState({ error, searched: false }));
@@ -73,6 +74,13 @@ export default class Current extends React.Component {
         {this.state.searched ? (
           <div className="card shadow p-3 mb-5 bg-white rounded">
             <Hourly hourly={this.state.hourly} />
+          </div>
+        ) : (
+          <></>
+        )}
+        {this.state.searched ? (
+          <div className="card shadow p-3 mb-5 bg-white rounded">
+            <DailyForecast daily={this.state.daily} />
           </div>
         ) : (
           <></>

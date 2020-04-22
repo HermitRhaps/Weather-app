@@ -1,6 +1,7 @@
 import React from "react";
+import "../style.css";
 
-export default class Hourly extends React.Component {
+export default class HourlyForecast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -25,8 +26,11 @@ export default class Hourly extends React.Component {
   render() {
     return (
       <>
-        <div class="card-header bg-light text-center">
+        <div className="card-header bg-light text-center">
           <h4>Hourly forecast</h4>
+          <h6>
+            {new Date(this.state.hourly[this.state.i].dt * 1000).toUTCString()}
+          </h6>
         </div>
         <div className="card-body">
           <div className="row justify-content-md-center">
@@ -53,7 +57,7 @@ export default class Hourly extends React.Component {
                   ></img>
                   {this.state.hourly[this.state.i].temp > 0
                     ? "+" + this.state.hourly[this.state.i].temp
-                    : "-" + this.state.hourly[0].temp}
+                    : this.state.hourly[0].temp}
                 </span>
               </h4>
             </div>
@@ -62,7 +66,7 @@ export default class Hourly extends React.Component {
                 Feels like:
                 {this.state.hourly[this.state.i].feels_like > 0
                   ? "+" + this.state.hourly[this.state.i].feels_like
-                  : "-" + this.state.hourly[this.state.i].feels_like}
+                  : this.state.hourly[this.state.i].feels_like}
               </h6>
               <h6>Humidity: {this.state.hourly[this.state.i].humidity}</h6>
               <h6>Wind speed: {this.state.hourly[this.state.i].humidity}</h6>

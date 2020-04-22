@@ -58,32 +58,26 @@ export default class Forecast extends React.Component {
   }
   render() {
     return (
-      <div className="container">
+      <section>
         {this.state.searched ? (
-          <div className="card shadow p-3 mb-5 bg-white rounded">
-            <CurrentForecast
-              timezone={this.state.timezone}
-              current={this.state.current}
-            />
+          <div className="container">
+            <div className="card shadow p-3 mb-5 bg-white rounded">
+              <CurrentForecast
+                timezone={this.state.timezone}
+                current={this.state.current}
+              />
+            </div>
+            <div className="card shadow p-3 mb-5 bg-white rounded">
+              <HourlyForecast hourly={this.state.hourly} />
+            </div>
+            <div className="card shadow p-3 mb-5 bg-white rounded">
+              <DailyForecast daily={this.state.daily} />
+            </div>
           </div>
         ) : (
           <></>
         )}
-        {this.state.searched ? (
-          <div className="card shadow p-3 mb-5 bg-white rounded">
-            <HourlyForecast hourly={this.state.hourly} />
-          </div>
-        ) : (
-          <></>
-        )}
-        {this.state.searched ? (
-          <div className="card shadow p-3 mb-5 bg-white rounded">
-            <DailyForecast daily={this.state.daily} />
-          </div>
-        ) : (
-          <></>
-        )}
-      </div>
+      </section>
     );
   }
 }

@@ -58,6 +58,7 @@ export default class HourlyForecast extends React.Component {
                   {this.state.hourly[this.state.i].temp > 0
                     ? "+" + this.state.hourly[this.state.i].temp
                     : this.state.hourly[0].temp}
+                  ° C
                 </span>
               </h4>
             </div>
@@ -67,9 +68,10 @@ export default class HourlyForecast extends React.Component {
                 {this.state.hourly[this.state.i].feels_like > 0
                   ? "+" + this.state.hourly[this.state.i].feels_like
                   : this.state.hourly[this.state.i].feels_like}
+                ° C
               </h6>
-              <h6>Humidity: {this.state.hourly[this.state.i].humidity}</h6>
-              <h6>Wind speed: {this.state.hourly[this.state.i].humidity}</h6>
+              <h6>Humidity: {this.state.hourly[this.state.i].humidity}%</h6>
+              <h6>Pressure: {this.state.hourly[this.state.i].pressure}mbar</h6>
             </div>
             <div className="col-1">
               <button

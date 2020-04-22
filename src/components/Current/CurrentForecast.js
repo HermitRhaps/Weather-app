@@ -38,6 +38,7 @@ export default class CurrentForecast extends React.Component {
                   {this.state.current.temp > 0
                     ? "+" + this.state.current.temp
                     : this.state.current.temp}
+                  ° C
                 </span>
               </h4>
             </div>
@@ -47,9 +48,10 @@ export default class CurrentForecast extends React.Component {
                 {this.state.current.feels_like > 0
                   ? "+" + this.state.current.feels_like
                   : this.state.current.feels_like}
+                ° C
               </h6>
-              <h6>Humidity: {this.state.current.humidity}</h6>
-              <h6>Wind speed: {this.state.current.humidity}</h6>
+              <h6>Humidity: {this.state.current.humidity}%</h6>
+              <h6>Pressure: {this.state.current.pressure}mbar</h6>
             </div>
           </div>
         </div>

@@ -10,6 +10,9 @@ export default class DailyForecast extends React.Component {
   render() {
     return (
       <div>
+        <div className="card-header bg-light text-center">
+          <h4>Daily forecast</h4>
+        </div>
         <div className="card-body">
           {this.state.daily.map((day) => (
             <div key={day.dt} className="card shadow p-3 mb-2">
@@ -35,22 +38,24 @@ export default class DailyForecast extends React.Component {
                 <div className="col-3">
                   <h6>
                     Evening:
-                    {day.temp.eve > 0 ? "+" + day.temp.eve : day.temp.eve}
+                    {day.temp.eve > 0 ? "+" + day.temp.eve : day.temp.eve}° C
                   </h6>
                   <h6>
                     Day:
-                    {day.temp.day > 0 ? "+" + day.temp.day : day.temp.day}
+                    {day.temp.day > 0 ? "+" + day.temp.day : day.temp.day}° C
                   </h6>
                   <h6>
                     Night:
                     {day.temp.night > 0 ? "+" + day.temp.night : day.temp.night}
+                    ° C
                   </h6>
                 </div>
                 <div className="col-3">
                   <h6>
                     Humidity:
-                    {day.humidity}
+                    {day.humidity}%
                   </h6>
+                  <h6>Pressure: {day.pressure}mbar</h6>
                 </div>
               </div>
             </div>

@@ -7,7 +7,7 @@ import "./style.css";
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 const REQUEST_TYPE = "onecall?";
-const USR_KEY = "&appid= Enter you key here";
+const USR_KEY = "&appid=enter your key here";
 
 export default class Forecast extends React.Component {
   constructor() {
@@ -53,6 +53,11 @@ export default class Forecast extends React.Component {
             },
           });
         })
+        .then(
+          setTimeout(() => {
+            console.log(this.state.current);
+          }, 1000)
+        )
         .catch((error) => this.setState({ error, searched: false }));
     });
   }

@@ -9,7 +9,7 @@
 }
 
 .card {
-  animation: show 1s ease-out;
+  animation: show 1.25s ease-out;
 }
 
 @keyframes show {

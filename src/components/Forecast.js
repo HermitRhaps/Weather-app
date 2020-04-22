@@ -1,7 +1,7 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import View from "./CurrentForecast";
-import Hourly from "./Hourly/HourlyForecast";
+import CurrentForecast from "./Current/CurrentForecast";
+import HourlyForecast from "./Hourly/HourlyForecast";
 import DailyForecast from "./Daily/DailyForecast";
 import "./style.css";
 
@@ -53,11 +53,6 @@ export default class Forecast extends React.Component {
             },
           });
         })
-        .then(
-          setTimeout(() => {
-            console.log(this.state.daily);
-          }, 1000)
-        )
         .catch((error) => this.setState({ error, searched: false }));
     });
   }
@@ -66,14 +61,17 @@ export default class Forecast extends React.Component {
       <div className="container">
         {this.state.searched ? (
           <div className="card shadow p-3 mb-5 bg-white rounded">
-            <View timezone={this.state.timezone} current={this.state.current} />
+            <CurrentForecast
+              timezone={this.state.timezone}
+              current={this.state.current}
+            />
           </div>
         ) : (
           <></>
         )}
         {this.state.searched ? (
           <div className="card shadow p-3 mb-5 bg-white rounded">
-            <Hourly hourly={this.state.hourly} />
+            <HourlyForecast hourly={this.state.hourly} />
           </div>
         ) : (
           <></>

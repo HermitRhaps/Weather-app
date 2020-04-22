@@ -1,13 +1,13 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import View from "./Current/CurrentForecast";
+import View from "./CurrentForecast";
 import Hourly from "./Hourly/HourlyForecast";
 import DailyForecast from "./Daily/DailyForecast";
 import "./style.css";
 
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 const REQUEST_TYPE = "onecall?";
-const USR_KEY = "&appid=83c6ba4dd07d83514536821a8a51d6d5";
+const USR_KEY = "&appid= Enter you key here";
 
 export default class Forecast extends React.Component {
   constructor() {

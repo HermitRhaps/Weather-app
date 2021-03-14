@@ -3,12 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import Forecast from "./components/Forecast";
-ReactDOM.render(
-  <React.StrictMode>
-    <Forecast />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+ReactDOM.render(<Forecast />, document.getElementById("root"));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

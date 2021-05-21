@@ -18,7 +18,7 @@ import Cities from "/Users/hermitrhaps/Documents/development/Weather-app/node_mo
 import CountriesData from "/Users/hermitrhaps/Documents/development/Weather-app/node_modules/countries-list/dist/countries.emoji.json";
 const API_URL = "https://api.openweathermap.org/data/2.5/";
 const REQUEST_TYPE = "onecall?";
-const USR_KEY = "";
+const USR_KEY = ""; // add your api key here
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -171,7 +171,7 @@ const Forecast = () => {
             </form>
           </Paper>
         </Grid>
-        {forecast && !keyError ? (
+        {forecast ? (
           <>
             <Grid item xs={12}>
               <Paper className={classes.paper} elevation={3}>
@@ -198,9 +198,15 @@ const Forecast = () => {
           </>
         ) : (
           <Grid item xs={12}>
-            <Paper className={classes.paper} elevation={3}>
-              <Typography variant="h6">There no API key, check it!</Typography>
-            </Paper>
+            {keyError ? (
+              <Paper className={classes.paper} elevation={3}>
+                <Typography variant="h6">
+                  There no API key, check it!
+                </Typography>
+              </Paper>
+            ) : (
+              false
+            )}
           </Grid>
         )}
       </Grid>
